@@ -30,3 +30,14 @@
 <script src="/scripts/block-user.js"></script>
 <script src="/scripts/delete-chat.js"></script>
 <script src="/scripts/send-message.js"></script>
+
+<script src="{{ asset('js/app.js') }}"></script>
+
+<script type="text/javascript">
+var userToId = @if(Auth::user()) {{ Auth::user()->id }} @endif
+
+Echo.private(`message.${userToId}`)
+   .listen('MesssageSent', (e) => {
+       console.log(e);
+   });
+</script>

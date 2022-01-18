@@ -132,33 +132,33 @@ function showInMap(pos) {
 
 
 //Video call
-const video = document.querySelector('#video-call-frame video');
-const audio = document.querySelector('#video-call-frame audio');
-const captureVideoButton = document.querySelector('.capture-button');
-const stopVideoButton = document.querySelector('#stopcamera');
+// const video = document.querySelector('#video-call-frame video');
+// const audio = document.querySelector('#video-call-frame audio');
+// const captureVideoButton = document.querySelector('.capture-button');
+// const stopVideoButton = document.querySelector('#stopcamera');
 
   //Capture Video
-  captureVideoButton.onclick = function() {
-     navigator.mediaDevices.getUserMedia({
-      audio: true,
-      video: true
-    })
-    .then(stream => {
-      window.localStream = stream;
-      video.srcObject = stream;
-      audio.srcObject = stream;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  };
-  stopVideoButton.onclick = function() {
-    localStream.getVideoTracks()[0].stop();
-    video.src = '';
-
-    localStream.getAudioTracks()[0].stop();
-    audio.src = '';
-  };
+  // captureVideoButton.onclick = function() {
+  //    navigator.mediaDevices.getUserMedia({
+  //     audio: true,
+  //     video: true
+  //   })
+  //   .then(stream => {
+  //     window.localStream = stream;
+  //     video.srcObject = stream;
+  //     audio.srcObject = stream;
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  // };
+  // stopVideoButton.onclick = function() {
+  //   localStream.getVideoTracks()[0].stop();
+  //   video.src = '';
+  //
+  //   localStream.getAudioTracks()[0].stop();
+  //   audio.src = '';
+  // };
 
 function init() {
 }

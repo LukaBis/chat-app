@@ -5,7 +5,7 @@
         <div class="header">
             <div class="header-top">
                 <div class="logo ml-2 mt-3">
-                    <a href="index.html">
+                    <a href="/">
                         <img src="/template-images/logo.png" class="header_image img-fluid" alt="">
                     </a>
                 </div>
@@ -43,7 +43,7 @@
 
                 <li class="user-list-item">
                     <div class="avatar avatar-online">
-                        <img src="images/avatar-8.jpg" class="rounded-circle" alt="image">
+                        <!-- <img src="images/avatar-8.jpg" class="rounded-circle" alt="image"> -->
                     </div>
                     <div class="users-list-body">
                         <div>

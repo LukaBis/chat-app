@@ -17,7 +17,7 @@ function search() {
        },
        function(data){
            show_users(data);
-           console.log(data);
+           // console.log(data);
        });
 }
 
