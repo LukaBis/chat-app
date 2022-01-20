@@ -5485,6 +5485,9 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   key: "2449debe017138b5ceb8",
   cluster: "eu",
   forceTLS: true
+});
+window.Echo["private"]("message").listen('MesssageSent', function (e) {
+  console.log(e);
 }); // Echo.private(`message.${messageId}`)
 //     .listen('MesssageSent', (e) => {
 //         console.log(e);

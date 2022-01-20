@@ -12,7 +12,7 @@
 <script src="/scripts/app.js"></script>
 
 <!-- Add the install script here -->
-<script>
+<!-- <script>
   // Register service worker.
   if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -22,7 +22,7 @@
         });
   });
 }
-</script>
+</script> -->
 
 <!-- Live search for users -->
 <script src="/scripts/live-search.js"></script>
@@ -34,10 +34,10 @@
 <script src="{{ asset('js/app.js') }}"></script>
 
 <script type="text/javascript">
-var userToId = @if(Auth::user()) {{ Auth::user()->id }} @endif
+var userToId = @if(Auth::user()) {{ Auth::user()->id .";" }} @endif
 
-Echo.private(`message.${userToId}`)
-   .listen('MesssageSent', (e) => {
+window.Echo.private(`message.` + userToId)
+   .listen('.MessageSent', (e) => {
        console.log(e);
    });
 </script>
