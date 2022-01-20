@@ -34,10 +34,45 @@
 <script src="{{ asset('js/app.js') }}"></script>
 
 <script type="text/javascript">
+function add_chat_user_text_message_to_chat(text) {
+    var htmlViewMessage = `
+        <div class="chats">
+            <div class="chat-content">
+                <div class="message-content">
+                    ` + text + `
+                </div>
+            </div>
+        </div>
+    `;
+
+    $('.messages').append(htmlViewMessage);
+}
+
+function add_chat_user_image_message_to_chat(image) {
+    var htmlViewMessage = `
+        <div class="chats">
+            <div class="chat-content">
+                <div class="message-content">
+                    <a href="{{ asset('/storage/images/messages/').'/' }}` + image + `">
+                        <img src="{{ asset('/storage/images/messages/').'/' }}` +image + `" alt="image" class="img-fluid rounded">
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+
+    $('.messages').append(htmlViewMessage);
+}
+
 var userToId = @if(Auth::user()) {{ Auth::user()->id .";" }} @endif
 
 window.Echo.private(`message.` + userToId)
    .listen('.MessageSent', (e) => {
-       console.log(e);
+       add_chat_user_text_message_to_chat(e.message.text);
+   })
+   .listen('.ImageMessageSent', (e) => {
+       console.log(e.message.image);
+       add_chat_user_image_message_to_chat(e.message.image);
    });
+
 </script>

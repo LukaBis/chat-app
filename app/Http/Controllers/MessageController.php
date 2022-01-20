@@ -7,6 +7,7 @@ use App\Models\Message;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Events\MessageSent;
+use App\Events\ImageMessageSent;
 
 class MessageController extends Controller
 {
@@ -28,9 +29,7 @@ class MessageController extends Controller
         $message->text = $request->text;
         $message->save();
 
-        // broadcast(new MessageSent($message));
         MessageSent::dispatch($message);
-        // event(new MessageSent($message));
 
         return response('Message saved', 200);
     }
@@ -56,6 +55,8 @@ class MessageController extends Controller
         $message->user_from_id = Auth::user()->id;
         $message->user_to_id = $request->chatUserId;
         $message->save();
+
+        ImageMessageSent::dispatch($message);
 
         return redirect()->back();
     }
